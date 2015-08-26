@@ -31,7 +31,7 @@ Both Emacs and vim have built-in interactive tutorials that you can try.
 
 What terminal editor will you use? How did you make your decision?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+> I will use Vim because I am already reasonably proficient with it.
 
 ---
 
@@ -61,6 +61,35 @@ We will also use Jupyter (IPython) notebooks, but this does not remove the need 
 
 What graphical editor will you use? How did you make your decision? What are some interesting features of your editor? What are some useful keyboard shortcuts for your editor? How do you customize your editor?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+> I will use PyCharm because it extremely full-featured. Some of the more interesting features include the following:
+>
+> * Full Git integration with graphical diff
+> * IPython and IPython Notebook integration
+> * Python code refactoring
+> * Quick navigation
+> * Code completion
+> * Plugin for Markdown files
+> * Plugin for Vim keybindings
+> * Presentation mode
+>
+> Here are a few useful keyboard shortcuts (taken from [PyCharm Key Bindings Reference Card for Mac](https://www.jetbrains.com/pycharm/docs/PyCharm_ReferenceCard_Mac.pdf):
+>
+> * Shift-Cmd-A: Find Action for finding keyboard shortcuts for various actions
+> * Cmd-O: Go to class (sadly, this doesn't automatically physically send me to class)
+> * Alt-Shift-I: Inspect Code with Editor Settings for finding coding errors and spelling mistakes
+> * Alt-Cmd-L: Reformat Code
+> * Shift-F6: Rename an identifier and automatically refactor all affected code
+> * Ctrl-Space: Code completion
+> * Cmd-Shift-U: Toggle case for word at caret or selected block
+>
+> Here a some customizations I have made:
+>
+> * Switched to Darcula color theme
+> * Switched to Vim keybindings
+> * Added 2 local Python Interpreters
+>     * Anaconda default installation with Python 2.7
+>     * Anaconda environment with Python 3.4
+
+>
 
 ---
