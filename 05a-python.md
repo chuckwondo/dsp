@@ -12,7 +12,7 @@ For quick and easy interactive practice with Python, many people enjoy [Codecade
 
 How are Python lists and tuples similar and different? Which will work as keys in dictionaries? Why?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+> Python lists and tuples are nearly equivalent, with the primary distinction being that lists are mutable whereas tuples are not. This means that lists are not hashable, but tuples are. Therefore tuples work as keys in dictionaries, but lists do not.
 
 ---
 
@@ -43,31 +43,31 @@ Explain list comprehensions. Give examples and show equivalents with `map` and `
 ###Complete the following problems by editing the files below:
 
 ###Q5. Datetime
-Use Python to compute days between start and stop date.   
-a.  
+Use Python to compute days between start and stop date.
+a.
 
 ```
-date_start = '01-02-2013'    
+date_start = '01-02-2013'
 date_stop = '07-28-2015'
 ```
 
 >> REPLACE THIS TEXT WITH YOUR RESPONSE
 
-b.  
+b.
 ```
-date_start = '12312013'  
-date_stop = '05282015'  
+date_start = '12312013'
+date_stop = '05282015'
 ```
 
 >> REPLACE THIS TEXT WITH YOUR RESPONSE
 
-c.  
+c.
 ```
-date_start = '15-Jan-1994'      
-date_stop = '14-Jul-2015'  
+date_start = '15-Jan-1994'
+date_stop = '14-Jul-2015'
 ```
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE  
+>> REPLACE THIS TEXT WITH YOUR RESPONSE
 
 Place code in this file: [q5_datetime.py](python/q5_datetime.py)
 
