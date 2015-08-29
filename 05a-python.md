@@ -20,7 +20,34 @@ How are Python lists and tuples similar and different? Which will work as keys i
 
 How are Python lists and sets similar and different? Give examples of using both. How does performance compare between lists and sets for finding an element. Why?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+> Python lists and sets are similar in that they are collections of mixed data, and both are mutable. However, there are a number of notable differences:
+
+> * Each element of a set is unique, whereas a list may contain duplicates.
+> * Elements of a set are unordered, whereas elements of a list are ordered.
+> * Elements of a list are directly accessible via a 0-based index, whereas set elements are not directly accessible.
+> * A set may contain only immutable elements, whereas there is no restriction on list elements.
+
+> Here is an example of using a list:
+
+>     >>> l = [99, "luftballoons", ("a", 1), 99]
+>     >>> l
+>     [99, 'luftballoons', ('a', 1), 99]
+>     >>> l + [{'major-version': 3}]
+>     [99, 'luftballoons', ('a', 1), 99, {'major-version': 3}]
+>     >>> l[1]
+>     'luftballoons'
+
+> Here is an example of using a set:
+
+>      >>> s = {99, "luftballoons", "a", 1, 99}
+>      >>> s
+>      {1, 99, 'a', 'luftballoons'}
+>      >>> s | {'a', 'b'}
+>      {1, 99, 'a', 'b', 'luftballoons'}
+>      >>> s - {1}
+>      {99, 'a', 'luftballoons'}
+
+> In general, finding an element in a set is faster than finding an element in a list because elements in a set are hashed, and can thus be found in constant time. The average time to find an element in a list grows as the size of the list grows (linearly for unsorted lists, logarithmically for sorted lists).
 
 ---
 
