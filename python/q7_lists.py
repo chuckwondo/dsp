@@ -15,7 +15,15 @@ def match_ends(words):
     >>> match_ends(['aaa', 'be', 'abc', 'hello'])
     1
     """
-    raise NotImplementedError
+    # Use the `reduce` function to keep a running count of the number of words
+    # that match the specified criteria. The lambda expression expects the
+    # accumulator (`a`) as the first argument (initially 0, as specified by the
+    # third argument to `reduce`), and a word (`w`) to inspect as the second
+    # argument. It returns the updated accumulator value by adding 1 to the
+    # current accumulator value if the given word matches the criteria, or 0
+    # otherwise. This works because `True` is treated as the integer 1, and
+    # `False` as 0.
+    return reduce(lambda a, w: a + (len(w) > 1 and w[0] == w[-1]), words, 0)
 
 
 def front_x(words):
@@ -32,7 +40,20 @@ def front_x(words):
     >>> front_x(['mix', 'xyz', 'apple', 'xanadu', 'aardvark'])
     ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
     """
-    raise NotImplementedError
+    # Sort using 2-tuples as keys, where the first element of the tuple is a
+    # Boolean value that is False if the word starts with 'x'; True otherwise.
+    # The second element of the tuple is the word itself. This results in
+    # tuples like the following:
+    #
+    #     (True, 'bbb')
+    #     (False, 'xzz')
+    #
+    # This effectively partitions the words into 2 buckets (words starting with
+    # 'x', and words not starting with 'x'). Sorting the words using such
+    # tuples as keys ensures that all words starting with 'x' are considered
+    # "less than" all words not starting with 'x'. Within each partition, words
+    # are sorted as usual.
+    return sorted(words, key=lambda w: (not w.startswith('x'), w))
 
 
 def sort_last(tuples):
@@ -49,7 +70,7 @@ def sort_last(tuples):
     >>> sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)])
     [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
     """
-    raise NotImplementedError
+    return sorted(tuples, key=lambda t: t[1])
 
 
 def remove_adjacent(nums):
@@ -68,7 +89,7 @@ def remove_adjacent(nums):
     >>> remove_adjacent([])
     []
     """
-    raise NotImplementedError
+    return reduce(lambda l, e: l if l and e == l[-1] else l + [e], nums, [])
 
 
 def linear_merge(list1, list2):
@@ -84,5 +105,40 @@ def linear_merge(list1, list2):
     ['aa', 'bb', 'cc', 'xx', 'zz']
     >>> linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb'])
     ['aa', 'aa', 'aa', 'bb', 'bb']
+    >>> linear_merge(['a', 'b'], [])
+    ['a', 'b']
+    >>> linear_merge([], ['a', 'b'])
+    ['a', 'b']
+    >>> linear_merge([], [])
+    []
     """
-    raise NotImplementedError
+    # Merged list of items, in fully sorted order
+    merged = []
+
+    # Indices of next elements to retrieve from the lists, starting at the
+    # beginning of both.
+    i1 = i2 = 0
+
+    # Iterate as long as we have not exhausted either list. On each pass,
+    # compare elements at the current indices, adding the smaller (or either
+    # one, if equal) to the merged list, and incrementing the appropriate
+    # list index.
+    while i1 < len(list1) and i2 < len(list2):
+        e1 = list1[i1]
+        e2 = list2[i2]
+
+        if e1 < e2:
+            merged.append(e1)
+            i1 += 1
+        else:
+            merged.append(e2)
+            i2 += 1
+
+    # One of the lists is exhausted (or both are, if equal lengths), so we need
+    # to append the remaining elements of the other list. However, to simplify
+    # the logic, we can unconditionally append remaining items from both lists.
+    # If a list is already exhausted, nothing further is appended.
+    merged.extend(list1[i1:])
+    merged.extend(list2[i2:])
+
+    return merged
