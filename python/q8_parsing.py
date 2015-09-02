@@ -1,17 +1,45 @@
-#The football.csv file contains the results from the English Premier League. 
-# The columns labeled ‘Goals’ and ‘Goals Allowed’ contain the total number of 
-# goals scored for and against each team in that season (so Arsenal scored 79 goals 
-# against opponents, and had 36 goals scored against them). Write a program to read the file, 
-# then print the name of the team with the smallest difference in ‘for’ and ‘against’ goals.
+# The football.csv file contains the results from the English Premier League.
+# The columns labeled 'Goals' and 'Goals Allowed' contain the total number of
+# goals scored for and against each team in that season (so Arsenal scored 79
+# goals against opponents, and had 36 goals scored against them). Write a
+# program to read the file, then print the name of the team with the smallest
+# difference in 'for' and 'against' goals.
 
 
 import csv
 
-  def read_data(data):
-   # COMPLETE THIS FUNCTION
 
-  def get_min_score_difference(self, parsed_data):
-    # COMPLETE THIS FUNCTION
+def read_data():
+    """
+    Returns a generator yielding a dictionary for each row in football.csv.
+    """
+    with open('football.csv') as csvfile:
+        reader = csv.DictReader(csvfile)
 
-  def get_team(self, index_value, parsed_data):
-    # COMPLETE THIS FUNCTION
+        for row in reader:
+            yield row
+
+
+def get_teams(data):
+    """
+    Returns a tuple containing the the smallest difference between goals scored
+    and goals allowed, and the list of all teams having this goal difference,
+    respectively.
+    """
+    min_scoring_diff = 1000
+
+    for row in data:
+        scoring_diff = abs(int(row['Goals']) - int(row['Goals Allowed']))
+
+        if scoring_diff < min_scoring_diff:
+            min_scoring_diff = scoring_diff
+            teams = []
+
+        if scoring_diff == min_scoring_diff:
+            teams.append(row['Team'])
+
+    return min_scoring_diff, teams
+
+
+if __name__ == "__main__":
+    print(get_teams(read_data()))
