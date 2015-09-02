@@ -18,7 +18,7 @@ def donuts(count):
     >>> donuts(99)
     'Number of donuts: many'
     """
-    raise NotImplementedError
+    return "Number of donuts: {}".format(count if count < 10 else "many")
 
 
 def both_ends(s):
@@ -37,12 +37,12 @@ def both_ends(s):
     >>> both_ends('xyz')
     'xyyz'
     """
-    raise NotImplementedError
+    return "" if len(s) < 2 else s[0:2] + s[-2:]
 
 
 def fix_start(s):
     """
-    Given a string s, return a string where all occurences of its
+    Given a string s, return a string where all occurrences of its
     first char have been changed to '*', except do not change the
     first char itself. e.g. 'babble' yields 'ba**le' Assume that the
     string is length 1 or more.
@@ -55,8 +55,10 @@ def fix_start(s):
     'goo*le'
     >>> fix_start('donut')
     'donut'
+    >>> fix_start('x')
+    'x'
     """
-    raise NotImplementedError
+    return s[0] + s[1:].replace(s[0], "*")
 
 
 def mix_up(a, b):
@@ -73,8 +75,10 @@ def mix_up(a, b):
     'spash gnort'
     >>> mix_up('pezzy', 'firm')
     'fizzy perm'
+    >>> mix_up('my', 'be')
+    'be my'
     """
-    raise NotImplementedError
+    return b[0:2] + a[2:] + " " + a[0:2] + b[2:]
 
 
 def verbing(s):
@@ -86,12 +90,12 @@ def verbing(s):
 
     >>> verbing('hail')
     'hailing'
-    >>> verbing('swiming')
-    'swimingly'
+    >>> verbing('swimming')
+    'swimmingly'
     >>> verbing('do')
     'do'
     """
-    raise NotImplementedError
+    return s if len(s) < 3 else s + "ly" if s.endswith("ing") else s + "ing"
 
 
 def not_bad(s):
@@ -110,8 +114,13 @@ def not_bad(s):
     'This tea is not hot'
     >>> not_bad("It's bad yet not")
     "It's bad yet not"
+    >>> not_bad("It's good to be bad, but not bad to be good.")
+    "It's good to be bad, but not bad to be good."
     """
-    raise NotImplementedError
+    i_not = s.find("not")
+    i_bad = s.find("bad")
+
+    return s[:i_not] + "good" + s[i_bad + 3:] if -1 < i_not < i_bad else s
 
 
 def front_back(a, b):
@@ -129,5 +138,17 @@ def front_back(a, b):
     'abcxydez'
     >>> front_back('Kitten', 'Donut')
     'KitDontenut'
+    >>> front_back('a', 'b')
+    'ab'
+    >>> front_back('a', '')
+    'a'
+    >>> front_back('', 'b')
+    'b'
+    >>> front_back('', '')
+    ''
     """
-    raise NotImplementedError
+    a_half_len = sum(divmod(len(a), 2))
+    b_half_len = sum(divmod(len(b), 2))
+
+    return a[:a_half_len] + b[:b_half_len] + a[a_half_len:] + b[b_half_len:]
+
