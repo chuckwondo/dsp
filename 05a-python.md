@@ -75,7 +75,43 @@ Describe Python's `lambda`. What is it, and what is it used for? Give at least o
 
 Explain list comprehensions. Give examples and show equivalents with `map` and `filter`. How do their capabilities compare? Also demonstrate set comprehensions and dictionary comprehensions.
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
+> List comprehensions build new lists by filtering and transforming items from other sequences or any other iterable type.
+
+> Here is an example of creating a list of squares of even numbers from 0 through 10:
+
+```python
+>>> [x ** 2 for x in range(11) if x % 2 == 0]
+[0, 4, 16, 36, 64, 100]
+```
+
+> Here's the equivalent using `map` and `filter`:
+
+```python
+>>> list(map(lambda x: x ** 2, filter(lambda x: x % 2 == 0, range(11))))
+[0, 4, 16, 36, 64, 100]
+```
+
+> Generally speaking, list comprehensions provide a more compact, readable notation than using `map` and `filter`, especially when used together and with lambda expressions.
+
+> Both list comprehensions and uses of `map` and `filter` may quickly become unreadable, at which point resorting to writing explicit loop constructs may be necessary for achieving better readability. Alternatively, with `map` and `filter`, if use of `lambda` expressions is impossible or becomes unreadable, it is possible to refactor them into proper functions, which then may improve readability without having to resort to explicit loop constructs. The same may be applied to list comprehensions.
+
+> Here is an example of a set comprehension for obtaining the unique first names of students in a class, where a student is represented by a tuple comprising the student's ID, first name, and last name:
+
+```python
+>>> students = {(1, 'John', 'Keating'), (2, 'John', 'Gilling'), (3, 'John', 'Winters'), (4, 'Chuck', 'Daniels')}
+>>> {s[1] for s in students}
+{'Chuck', 'John'}
+```
+
+> Here is an example of a dictionary comprehension using the same set of students, creating a dictionary mapping IDs to students:
+
+```python
+>>> {s[0]: s for s in students}
+{1: (1, 'John', 'Keating'),
+ 2: (2, 'John', 'Gilling'),
+ 3: (3, 'John', 'Winters'),
+ 4: (4, 'Chuck', 'Daniels')}
+```
 
 ---
 
