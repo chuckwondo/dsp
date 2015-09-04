@@ -157,3 +157,14 @@ If you're all done and looking for an extra challenge, then try the below proble
 
 ### [Markov](python/markov.py) (Optional)
 
+For input, I downloaded "Siddharta" by Herman Hesse from The Gutenburg Project,
+and I trimmed everything from the beginning and end that is not part of the main
+text. Further, I removed the chapter headings.
+
+Sample run:
+
+```
+>>> ./markov.py siddhartha.txt 100
+```
+
+> And when he walked again in long strides, started to weep. "Siddhartha!" he exclaimed lamentingly. Siddhartha kindly spoke to his guest while asking: "Can you read this?" Siddhartha looked over as if a pretty young man like you would delight my heart." Quoth Siddhartha: "I can't help but feel that it is also with Kamala and with friendly patience I intent to capture it in the midst of the forest together with his eyes closed, he slipped out of it was neither thought nor consciousness, thus the wisest ones taught. So, where, where was Atman to be here yellow, here
