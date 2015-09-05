@@ -33,7 +33,7 @@ class MarkovText(object):
             # Create the next ngram by dropping the zeroth word from the current
             # ngram, and appending the current word. The next word we get from
             # the input words is obviously the word that follows this ngram.
-            ngram = tuple(list(ngram[1:]) + [word])
+            ngram = ngram[1:] + (word,)
 
     def generate(self, n=100):
         # Randomly choose a 'seed' ngram from all ngrams found in the input, so
@@ -61,7 +61,7 @@ class MarkovText(object):
 
             # Create the next ngram by dropping the zeroth word from the current
             # ngram, and appending the current word.
-            ngram = tuple(list(ngram[1:]) + [word])
+            ngram = ngram[1:] + (word,)
 
 
 def _words(source):
