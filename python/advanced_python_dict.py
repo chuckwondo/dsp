@@ -26,4 +26,4 @@ print(prof_dict.items()[:3])
 
 # Q8
 
-print(sorted(prof_dict.items(), key=lambda t: t[0][1])[:3])
+print(sorted(prof_dict.items(), key=lambda (k, v): (k[1], k[0]))[:3])
