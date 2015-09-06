@@ -1,5 +1,6 @@
 # Based on materials copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
+from operator import itemgetter
 
 
 def match_ends(words):
@@ -70,7 +71,7 @@ def sort_last(tuples):
     >>> sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)])
     [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
     """
-    return sorted(tuples, key=lambda t: t[1])
+    return sorted(tuples, key=itemgetter(1))
 
 
 def remove_adjacent(nums):
