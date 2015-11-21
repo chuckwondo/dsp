@@ -5,6 +5,8 @@
 # program to read the file, then print the name of the team with the smallest
 # difference in 'for' and 'against' goals.
 
+# The below skeleton is optional.  You can use it or you can write the script with an approach of your choice.
+
 
 import csv
 

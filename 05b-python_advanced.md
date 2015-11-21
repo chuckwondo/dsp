@@ -4,6 +4,10 @@
 
 This question has multiple parts, and will take **20+ hours** to complete, depending on your python proficiency level.  Knowing these skills will be extremely beneficial during the first few weeks of the bootcamp.
 
+For Part 1, use of regular expressions is optional.  Work can be completed using a programming approach of your preference. 
+
+---
+
 The data file represents the [Biostats Faculty List at University of Pennsylvania](http://www.med.upenn.edu/cceb/biostat/faculty.shtml)
 
 This data is available in this file:  [faculty.csv](python/faculty.csv)
@@ -12,7 +16,6 @@ This data is available in this file:  [faculty.csv](python/faculty.csv)
 
 ###Part I - Regular Expressions  
 
-Use regular expressions to:
 
 ####Q1. Find how many different degrees there are, and their frequencies: Ex:  PhD, ScD, MD, MPH, BSEd, MS, JD, etc.
 
@@ -80,6 +83,8 @@ Place your code in this file: [advanced_python_regex.py](python/advanced_python_
 
 Place your code in this file: [advanced_python_csv.py](python/advanced_python_csv.py)
 
+The emails.csv file you create should be added and committed to your forked repository.
+
 Your file, emails.csv, will look like this:
 ```
 bellamys@mail.med.upenn.edu
@@ -138,7 +143,7 @@ Print the first 3 key and value pairs of the dictionary:
 ]
 ```
 
-####Q8.  It looks like the current dictionary is sorted by first name.  Sort by last name and print the first 3 key and value pairs.  
+####Q8.  It looks like the current dictionary is printing by first name.  Sort by last name and print the first 3 key and value pairs.  
 
 > ```
 >>>> print(sorted(prof_dict.items(), key=lambda t: t[0][1])[:3])
