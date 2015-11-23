@@ -166,10 +166,28 @@ For input, I downloaded "Siddharta" by Herman Hesse from The Gutenburg Project,
 and I trimmed everything from the beginning and end that is not part of the main
 text. Further, I removed the chapter headings.
 
+To make the output a bit more sensible, I enhanced the general logic as follows:
+
+1. I randomly choose a starting n-gram until I find one that ends a sentence. This ensures the *first word* generated is a word that *starts a sentence*.
+1. I generate at least as many words as specified by the user, until the current n-gram ends a sentence. This ensures that the *last word* generated is a word that *ends a sentence*, but at the price of generating more than the desired number of words before stopping.
+
+Usage:
+
+```
+$ ./markov.py
+Usage: ./markov.py file max_words [ngram_size]
+```
+
 Sample run:
 
 ```
->>> ./markov.py siddhartha.txt 100
+$ ./markov.py siddhartha.txt 100 3
+They listened. Softly sounded the river, singing in many voices. Siddhartha
+looked into his eyes. She spoke with a heavy tongue, paralysed by the poison.
+"You've become old, my dear," she said, "you've become gray. But you are like
+the young Samana, who at one time said to me, you would not walk the path of
+the teachings, of the examples, of the repetitions, brightly and quietly his
+voice hovered over the listeners, like a light, like a starry sky. When the
+Buddha--night had already fallen--ended his speech, many a pilgrim stepped
+forward and spoke: "I also take my refuge in his teachings."
 ```
-
-> And when he walked again in long strides, started to weep. "Siddhartha!" he exclaimed lamentingly. Siddhartha kindly spoke to his guest while asking: "Can you read this?" Siddhartha looked over as if a pretty young man like you would delight my heart." Quoth Siddhartha: "I can't help but feel that it is also with Kamala and with friendly patience I intent to capture it in the midst of the forest together with his eyes closed, he slipped out of it was neither thought nor consciousness, thus the wisest ones taught. So, where, where was Atman to be here yellow, here

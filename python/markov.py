@@ -39,10 +39,13 @@ class MarkovText(object):
             ngram = ngram[1:] + (word,)
 
     def generate(self, n=100):
-        def seed_ngram():
-            def ends_sentence(ngram):
-                return re.match('.+[.?!]"?$', ngram[-1]) is not None
+        if n <= 0:
+            raise StopIteration
 
+        def ends_sentence(ngram):
+            return re.match('.+[.?!]"?$', ngram[-1]) is not None
+
+        def seed_ngram():
             keys = self.ngram_to_following_words.keys()
             ngrams = keys if type(keys) == list else list(keys)
             ngram = random.choice(ngrams)
@@ -58,11 +61,11 @@ class MarkovText(object):
 
         # Generate up to n words, starting with a randomly chosen word from the
         # words that follow the current ngram.
-        for _ in range(n):
+        while True:
             try:
                 word = random.choice(self.ngram_to_following_words[ngram])
             except IndexError:
-                # When the initial, randomly chosen ngram is the last ngram of
+                # When the currently chosen ngram is the last ngram of
                 # the input, and that ngram appears nowhere else in the input,
                 # there are no words that follow that ngram, so the value of
                 # self.ngram_to_following_words[ngram] is an empty sequence.
@@ -70,14 +73,19 @@ class MarkovText(object):
                 # Since there is nothing to randomly choose from an empty
                 # sequence, random.choice raises IndexError. In this case, we
                 # want to stop iteration because we have no sensible means for
-                # choosing the next word.
+                # choosing the next word, but at least we're presumably at the
+                # end of a sentence.
                 raise StopIteration
 
             yield word
+            n -= 1
 
             # Create the next ngram by dropping the zeroth word from the current
             # ngram, and appending the current word.
             ngram = ngram[1:] + (word,)
+
+            if n <= 0 and ends_sentence(ngram):
+                raise StopIteration
 
 
 def _words(source):
