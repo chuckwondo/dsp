@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+from __future__ import print_function
+
 import random
 import sys
 from collections import defaultdict
@@ -38,11 +40,13 @@ class MarkovText(object):
     def generate(self, n=100):
         # Randomly choose a 'seed' ngram from all ngrams found in the input, so
         # that we can begin generating words.
-        ngram = random.choice(self.ngram_to_following_words.keys())
+        keys = self.ngram_to_following_words.keys()
+        ngrams = keys if type(keys) == list else list(keys)
+        ngram = random.choice(ngrams)
 
         # Generate up to n words, starting with a randomly chosen word from the
         # words that follow the current ngram.
-        for _ in xrange(n):
+        for _ in range(n):
             try:
                 word = random.choice(self.ngram_to_following_words[ngram])
             except IndexError:
@@ -73,7 +77,7 @@ def _words(source):
 
 def _main(source, max_words=100, ngram_len=2):
     for word in MarkovText(_words(source), ngram_len).generate(max_words):
-        print word,
+        print(word, end=' ')
 
 
 if __name__ == "__main__":
