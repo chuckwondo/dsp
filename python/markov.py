@@ -2,6 +2,7 @@
 from __future__ import print_function
 
 import random
+import re
 import sys
 from collections import defaultdict
 
@@ -38,11 +39,22 @@ class MarkovText(object):
             ngram = ngram[1:] + (word,)
 
     def generate(self, n=100):
+        def seed_ngram():
+            def ends_sentence(ngram):
+                return re.match('.+[.?!]"?$', ngram[-1]) is not None
+
+            keys = self.ngram_to_following_words.keys()
+            ngrams = keys if type(keys) == list else list(keys)
+            ngram = random.choice(ngrams)
+
+            while not ends_sentence(ngram):
+                ngram = random.choice(ngrams)
+
+            return ngram
+
         # Randomly choose a 'seed' ngram from all ngrams found in the input, so
         # that we can begin generating words.
-        keys = self.ngram_to_following_words.keys()
-        ngrams = keys if type(keys) == list else list(keys)
-        ngram = random.choice(ngrams)
+        ngram = seed_ngram()
 
         # Generate up to n words, starting with a randomly chosen word from the
         # words that follow the current ngram.
