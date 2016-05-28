@@ -10,7 +10,6 @@ It may sound silly, but [make sure](http://www.typingtest.com/) you know how to 
 
 A lot of your work will be done in a text editor. You have to know how to use your editor. Any editor will work, but knowing a powerful editor well will make you faster, more comfortable, and more effective.
 
-
 ### Terminal Editor
 
 Sometimes you will need to use a non-graphical text editor. This means an editor that will run entirely inside a terminal window, without spawning a new window, entirely without mouse input.
@@ -26,15 +25,6 @@ You should know at least enough vim to be able to get out of it, because it is t
 If you intend to use a graphical editor that doesn't run in a terminal, nano might be a good choice for you because it is very simple.
 
 Both Emacs and vim have built-in interactive tutorials that you can try.
-
----
-
-What terminal editor will you use? How did you make your decision?
-
-> I will use Vim because I am already reasonably proficient with it.
-
----
-
 
 ### Graphical Editor
 
@@ -57,11 +47,17 @@ Spyder and PyCharm are IDEs for Python. They try to give you a fully configured 
 
 We will also use Jupyter (IPython) notebooks, but this does not remove the need for proficiency in an editor or IDE.
 
----
+### Q1. Terminal Editor
+
+What terminal editor will you use? How did you make your decision?
+
+> I will use Vim because I am already reasonably proficient with it.
+
+### Q2. Graphical Editor
 
 What graphical editor will you use? How did you make your decision? What are some interesting features of your editor? What are some useful keyboard shortcuts for your editor? How do you customize your editor?
 
-> I will use PyCharm because it extremely full-featured. Some of the more interesting features include the following:
+> I will use PyCharm because it is extremely full-featured. Some of the more interesting features include the following:
 >
 > * Full Git integration with graphical diff
 > * IPython and IPython Notebook integration
@@ -89,7 +85,3 @@ What graphical editor will you use? How did you make your decision? What are som
 > * Added 2 local Python Interpreters
 >     * Anaconda default installation with Python 2.7
 >     * Anaconda environment with Python 3.4
-
->
-
----
