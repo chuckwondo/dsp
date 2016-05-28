@@ -40,42 +40,38 @@ have it yet. You could use Homebrew to manage your `git` and `python`
 installs as well, but the methods given above are very good and more
 cross-platform.
 
----
 
-###Q1. Python Version 2 or 3
+### Q1. Python Version 2 or 3
 
 Did you install Python 2 or 3? Why?  
 
 > I installed Anaconda with Python 2.7 since Python 2 is more commonly used than Python 3.
-
+>
 > To check the version of Python installed, run the following command:
-
+>
 >     $ python --version
 >     Python 2.7.10 :: Anaconda 2.3.0 (x86_64)
-
+>
 > However, I also created a separate environment with Python 3.4, including all of the same packages installed in the default environment, by running the following command:
-
+>
 >     conda create -n py34 python=3.4 anaconda
-
+>
 > I can switch to the new environment by using the following command:
-
+>
 >     source activate py34
-
+>
 > I can then confirm that the correct version of Python is installed in the new environment:
-
+>
 >     $ python --version
 >     Python 3.4.3 :: Anaconda 2.3.0 (x86_64)
-
+>
 > Finally, I can restore the default environment by deactivating the new environment:
-
+>
 >     source deactivate
 
-###Q2. Which Python Version Installed   
+### Q2. Which Python Version Installed
 
 How can you check the version of Python installed if you happen to be on an unfamiliar computer?
 
->> REPLACE THIS TEXT WITH YOUR RESPONSE
-
- 
-
-
+>     python --version
+>     python -V
