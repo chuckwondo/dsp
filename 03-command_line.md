@@ -15,7 +15,8 @@ Make a cheat sheet for yourself: a list of at least **ten** commands and what th
 
 ### Q2.  List Files in Unix
 
-What do the following commands do:  
+What do the following commands do:
+
 `ls`  
 `ls -a`  
 `ls -l`  
@@ -28,13 +29,17 @@ What do the following commands do:
 > * `ls -a` shows _all_ directory entries, including those that start with a dot (`.`), which are otherwise not shown
 > * `ls -l` lists contents in _long_ format, where in addition to names, permissions, sizes, owners, and modified dates are listed as well
 > * `ls -lh` is the same as `ls -l` except that file sizes are shown in a more compact notation in units of Bytes, Kilobytes, Megabytes, etc.
-> * All combinations are valid except in the case of the `-h` flag, which has no affect without the `-l` flag.
+> * `ls -lah` is a combination of `ls -a` and `ls -lh`
+> * `ls -t` lists contents in order of last-modified time, with the
+most-recently modified item listed first
+> * `ls -Glp` behaves like `ls -l`, but also uses colors (`G`) to distinguish
+ file types and attributes, and adds a trailing slash (`p`) to each directory
 
 ### Q3.  More List Files in Unix
 
 Explore these other [ls options](http://www.techonthenet.com/unix/basic/ls.php) and pick 5 of your favorites:
 
-> REPLACE THIS TEXT WITH YOUR RESPONSE
+> My favorites are `l`, `a`, `G`, `p`, and `h`
 
 ### Q4.  Xargs
 
