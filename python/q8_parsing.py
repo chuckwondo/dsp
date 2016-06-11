@@ -43,6 +43,5 @@ def get_teams(data):
 
     return min_scoring_diff, teams
 
-
 if __name__ == "__main__":
     print(get_teams(read_data()))
