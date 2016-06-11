@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import advanced_python_regex as apr
 
 emails = sorted(apr.select_email_addresses(apr.read_faculty()))
