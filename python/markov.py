@@ -42,18 +42,22 @@ class MarkovText(object):
         if n <= 0:
             raise StopIteration
 
-        def ends_sentence(ngram):
-            return re.match('.+[.?!]"?$', ngram[-1]) is not None
+        def ends_sentence(token):
+            return re.match('.+[.?!]"?$', token) is not None
 
         def seed_ngram():
             keys = self.ngram_to_following_words.keys()
             ngrams = keys if type(keys) == list else list(keys)
-            ngram = random.choice(ngrams)
+            seed = random.choice(ngrams)
 
-            while not ends_sentence(ngram):
-                ngram = random.choice(ngrams)
+            # Look for a seed ngram that ends a sentence so that the first word
+            # we generate is a word that starts some sentence (since a word
+            # that follows a ngram that ends a sentence is the start of a
+            # following sentence).
+            while not ends_sentence(seed[-1]):
+                seed = random.choice(ngrams)
 
-            return ngram
+            return seed
 
         # Randomly choose a 'seed' ngram from all ngrams found in the input, so
         # that we can begin generating words.
@@ -84,7 +88,11 @@ class MarkovText(object):
             # ngram, and appending the current word.
             ngram = ngram[1:] + (word,)
 
-            if n <= 0 and ends_sentence(ngram):
+            # Even if we've generated the requested number of words, don't stop
+            # generating words until we've reached what appears to be the end of
+            # a sentence. This is simply to avoid generating output that ends in
+            # the middle of a sentence.
+            if n <= 0 and ends_sentence(word):
                 raise StopIteration
 
 
