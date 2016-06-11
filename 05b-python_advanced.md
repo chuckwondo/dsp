@@ -20,12 +20,16 @@ This data is available in this file:  [faculty.csv](python/faculty.csv)
 ####Q1. Find how many different degrees there are, and their frequencies: Ex:  PhD, ScD, MD, MPH, BSEd, MS, JD, etc.
 
 > Strictly speaking, there are 9 different degrees, but one of them is `0`, so there are only 8 sensible values. Here are the frequencies of all 9:
-
+>
 >     [('0', 1), ('BSEd', 1), ('JD', 1), ('MA', 1), ('MD', 1), ('MPH', 2), ('MS', 2), ('PhD', 31), ('ScD', 6)]
 
 ####Q2. Find how many different titles there are, and their frequencies:  Ex:  Assistant Professor, Professor
 
-> There are 3 distinct titles: [('Assistant Professor of Biostatistics', 12), ('Associate Professor of Biostatistics', 12), ('Professor of Biostatistics', 13)]
+> There are 3 distinct titles:
+>
+> 1. Assistant Professor of Biostatistics, 12
+> 1. Associate Professor of Biostatistics, 12
+> 1. Professor of Biostatistics, 13
 
 
 ####Q3. Search for email addresses and put them in a list.  Print the list of email addresses.
@@ -71,7 +75,12 @@ This data is available in this file:  [faculty.csv](python/faculty.csv)
 
 ####Q4. Find how many different email domains there are (Ex:  mail.med.upenn.edu, upenn.edu, email.chop.edu, etc.).  Print the list of unique email domains.
 
-> There are 4 unique email domains: [('cceb.med.upenn.edu', 1), ('email.chop.edu', 1), ('mail.med.upenn.edu', 23), ('upenn.edu', 12)]
+> There are 4 unique email domains:
+>
+> 1. cceb.med.upenn.edu, 1
+> 1. email.chop.edu, 1
+> 1. mail.med.upenn.edu, 23
+> 1. upenn.edu, 12
 
 Place your code in this file: [advanced_python_regex.py](python/advanced_python_regex.py)
 
@@ -103,14 +112,12 @@ faculty_dict = { 'Ellenberg': [['Ph.D.', 'Professor', 'sellenbe@upenn.edu'], ['P
 ```
 Print the first 3 key and value pairs of the dictionary:
 
-> ```
->>>> print(faculty_dict.items()[:3])
-[
-('Putt', [['PhD ScD', 'Professor of Biostatistics', 'mputt@mail.med.upenn.edu']])
-('Feng', [['Ph.D', 'Assistant Professor of Biostatistics', 'ruifeng@upenn.edu']])
-('Bilker', [['Ph.D.', 'Professor of Biostatistics', 'warren@upenn.edu']])
-]
-```
+>     >>> print(faculty_dict.items()[:3])
+>     [
+>     ('Putt', [['PhD ScD', 'Professor of Biostatistics', 'mputt@mail.med.upenn.edu']])
+>     ('Feng', [['Ph.D', 'Assistant Professor of Biostatistics', 'ruifeng@upenn.edu']])
+>     ('Bilker', [['Ph.D.', 'Professor of Biostatistics', 'warren@upenn.edu']])
+>     ]
 
 
 ####Q7.  The previous dictionary does not have the best design for keys.  Create a new dictionary with keys as:
@@ -121,25 +128,21 @@ professor_dict = {('Susan', 'Ellenberg'): ['Ph.D.', 'Professor', 'sellenbe@upenn
 
 Print the first 3 key and value pairs of the dictionary:
 
-> ```
->>>> print(prof_dict.items()[:3])
-[
-(('Yimei', 'Li'), ['Ph.D.', 'Assistant Professor of Biostatistics', 'liy3@email.chop.edu']),
-(('Hongzhe', 'Li'), ['Ph.D', 'Professor of Biostatistics', 'hongzhe@upenn.edu']),
-(('Justine', 'Shults'), ['Ph.D.', 'Professor of Biostatistics', 'jshults@mail.med.upenn.edu'])
-]
-```
+>     >>> print(prof_dict.items()[:3])
+>     [
+>     (('Yimei', 'Li'), ['Ph.D.', 'Assistant Professor of Biostatistics', 'liy3@email.chop.edu']),
+>     (('Hongzhe', 'Li'), ['Ph.D', 'Professor of Biostatistics', 'hongzhe@upenn.edu']),
+>     (('Justine', 'Shults'), ['Ph.D.', 'Professor of Biostatistics', 'jshults@mail.med.upenn.edu'])
+>     ]
 
 ####Q8.  It looks like the current dictionary is printing by first name.  Print out the dictionary key value pairs based on alphabetical orders of the last name of the professors
 
-> ```
->>>> print(sorted(prof_dict.items(), key=lambda t: t[0][1])[:3])
-[
-(('Scarlett', 'Bellamy'), ['Sc.D.', 'Associate Professor of Biostatistics', 'bellamys@mail.med.upenn.edu']),
-(('Warren', 'Bilker'), ['Ph.D.', 'Professor of Biostatistics', 'warren@upenn.edu']),
-(('Matthew', 'Bryan'), ['PhD', 'Assistant Professor of Biostatistics', 'bryanma@upenn.edu'])
-]
-```
+>     >>> print(sorted(prof_dict.items(), key=lambda t: t[0][1])[:3])
+>     [
+>     (('Scarlett', 'Bellamy'), ['Sc.D.', 'Associate Professor of Biostatistics', 'bellamys@mail.med.upenn.edu']),
+>     (('Warren', 'Bilker'), ['Ph.D.', 'Professor of Biostatistics', 'warren@upenn.edu']),
+>     (('Matthew', 'Bryan'), ['PhD', 'Assistant Professor of Biostatistics', 'bryanma@upenn.edu'])
+>     ]
 
 Place your code in this file: [advanced_python_dict.py](python/advanced_python_dict.py)
 
