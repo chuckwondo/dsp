@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import advanced_python_regex as apr
 from collections import defaultdict
 
@@ -11,7 +13,8 @@ for prof in faculty:
     surname = prof['name'].split()[-1]
     faculty_dict[surname].append([prof['degree'], prof['title'], prof['email']])
 
-print(faculty_dict.items()[:3])
+for item in list(faculty_dict.items())[:3]:
+    print(item)
 
 # Q7
 
@@ -22,8 +25,14 @@ for prof in faculty:
     fname, surname = names[0], names[-1]
     prof_dict[(fname, surname)] = [prof['degree'], prof['title'], prof['email']]
 
-print(prof_dict.items()[:3])
+print()
+
+for item in list(prof_dict.items())[:3]:
+    print(item)
 
 # Q8
 
-print(sorted(prof_dict.items(), key=lambda (k, v): (k[1], k[0]))[:3])
+print()
+
+for item in sorted(prof_dict.items(), key=lambda t: (t[0][1], t[0][0]))[:3]:
+    print(item)
