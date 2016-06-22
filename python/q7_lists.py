@@ -121,10 +121,8 @@ def linear_merge(list1, list2):
 def linear_merge_acc(list1, list2, acc):
     if len(list1) == 0:
         return acc + list2
-    elif len(list2) == 0:
+    if len(list2) == 0:
         return acc + list1
-
     if list1[0] < list2[0]:
         return linear_merge_acc(list1[1:], list2, acc + [list1[0]])
-
     return linear_merge_acc(list1, list2[1:], acc + [list2[0]])
