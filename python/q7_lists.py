@@ -115,33 +115,16 @@ def linear_merge(list1, list2):
     >>> linear_merge([], [])
     []
     """
-    # Merged list of items, in fully sorted order
-    merged = []
+    return linear_merge_acc(list1, list2, [])
 
-    # Indices of next elements to retrieve from the lists, starting at the
-    # beginning of both.
-    i1 = i2 = 0
 
-    # Iterate as long as we have not exhausted either list. On each pass,
-    # compare elements at the current indices, adding the smaller (or either
-    # one, if equal) to the merged list, and incrementing the appropriate
-    # list index.
-    while i1 < len(list1) and i2 < len(list2):
-        e1 = list1[i1]
-        e2 = list2[i2]
+def linear_merge_acc(list1, list2, acc):
+    if len(list1) == 0:
+        return acc + list2
+    elif len(list2) == 0:
+        return acc + list1
 
-        if e1 < e2:
-            merged.append(e1)
-            i1 += 1
-        else:
-            merged.append(e2)
-            i2 += 1
+    if list1[0] < list2[0]:
+        return linear_merge_acc(list1[1:], list2, acc + [list1[0]])
 
-    # One of the lists is exhausted (or both are, if equal lengths), so we need
-    # to append the remaining elements of the other list. However, to simplify
-    # the logic, we can unconditionally append remaining items from both lists.
-    # If a list is already exhausted, nothing further is appended.
-    merged.extend(list1[i1:])
-    merged.extend(list2[i2:])
-
-    return merged
+    return linear_merge_acc(list1, list2[1:], acc + [list2[0]])
