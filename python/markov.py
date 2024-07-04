@@ -111,7 +111,7 @@ def _main(source, max_words=100, ngram_len=2):
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("Usage: %s file max_words [ngram_size]" % sys.argv[0])
+        print(f"Usage: {sys.argv[0]} file max_words [ngram_size]")
         sys.exit(1)
 
     _filename = sys.argv[1]
