@@ -80,7 +80,7 @@ class MarkovText(object):
                 # want to stop iteration because we have no sensible means for
                 # choosing the next word, but at least we're presumably at the
                 # end of a sentence.
-                raise StopIteration
+                return
 
             yield word
             n -= 1
@@ -94,7 +94,7 @@ class MarkovText(object):
             # a sentence. This is simply to avoid generating output that ends in
             # the middle of a sentence.
             if n <= 0 and ends_sentence(word):
-                raise StopIteration
+                return
 
 
 def _words(source):
