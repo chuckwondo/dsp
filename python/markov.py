@@ -100,8 +100,7 @@ class MarkovText(object):
 def _words(source):
     with open(source) as lines:
         for line in lines:
-            for word in line.split():
-                yield word
+            yield from line.split()
 
 
 def _main(source, max_words=100, ngram_len=2):
